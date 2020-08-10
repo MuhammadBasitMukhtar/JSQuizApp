@@ -1,0 +1,115 @@
+.container 
+{
+  display: flex;  
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ 
+}
+.font-1
+{
+    font-family: 'Acme', sans-serif;
+}
+.js
+{
+    text-align: justify;
+}
+.font-2
+{
+    font-family: 'Recursive', sans-serif;
+}
+.font-3
+{
+    font-family: 'Luckiest Guy', cursive;
+}
+.heading
+{
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+}
+.center
+{
+    font-size: 1.8rem;
+}
+.left, .right
+{
+    display: flex;
+    font-size: 1.2rem;
+ 
+}
+.left
+{
+    justify-content: flex-start;
+}
+.right
+{
+    justify-content: flex-end;
+}
+.center h1
+{
+    margin: -25px;
+}
+.main-test
+{
+    display: flex;
+    width: 350px;
+    flex-direction: column;
+}
+.main-test .before-test
+{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+.main-test .before-test a
+{
+    padding: 3px 15px !important;
+    border-radius: 25px;
+    border: 1px solid black;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+}
+.main-test .test-controls
+{
+    padding: 10px;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+.main-test .test-controls span
+{
+    padding: 3px 15px !important;
+    border-radius: 25px;
+    border: 1px solid black;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+}
+.main-test .test-controls input
+{
+    padding: 0px 15px !important;
+    border-radius: 25px !important;
+    border: 1px solid black !important;
+    height: 41px !important;
+    line-height: 30px !important;
+    cursor: pointer !important;
+    text-decoration: none;
+    font-size: inherit;
+    background: white;
+}
+label
+{
+    cursor: pointer;
+}
+.text-center
+{
+    text-align: center;
+}
+#result
+{
+    text-align: center !important;
+}

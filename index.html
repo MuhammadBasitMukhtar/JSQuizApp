@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App - Muhammad Basit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Luckiest+Guy&family=Recursive&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="heading">
+            <div class="left font-2">
+                <h3>Simple</h3>
+            </div>
+            <div class="center font-3">
+                <h1>Quiz App in JS</h1>
+            </div>
+            <div class="right font-2">
+                <h3>By Muhammad Basit</h3>
+            </div>
+        </div>
+        <div class="main-test">
+            <div id="information">
+                <h2 class="text-center font-1">Welcome to Simple Quiz</h2>
+                <p class="font-2 js">There are ofcourse some rules that you have to follow:
+                    <ul class="font-2">
+                        <li>You have to select all answers in given time.</li>
+                        <li>You can go back to previous questions.</li>
+                        <li>Total time is 5 mins no more or less.</li>
+                        <li>Total 10 Questions, each carry 5 marks.</li>
+                    </ul>
+                </p>
+            </div>
+            <div class="before-test">
+                <a class="flex-end font-2" id="start" onclick="Quiz()">Start Quiz</a>
+                <h4 class="flex-start font-2">Time: <span id="time">05:00</span></h4>
+            </div>
+            <form id="testq">
+            <div class="test">
+               
+                    <div class="mcq font-2" id="Q1">
+                        <div class="question">
+                            <h5>Q#1: “Zulu” is the prominent tribe of____________?</h5>
+                        </div>
+                        <div class="options">
+                            <label><input type="radio" name="mcq1" value="East Malaysia">
+                            East Malaysia</label>
+                            <br>
+                            <label><input type="radio" name="mcq1" value="Zambia">
+                            Zambia</label>
+                            <br>
+                            <label><input type="radio" name="mcq1" value="Congo">
+                            Congo</label>
+                            <br>
+                            <label><input type="radio" name="mcq1" value="South Africa" id="MC1">
+                            South Africa</label>
+                        </div>
+                    </div>
+
+                    <div class="mcq font-2" id="Q2">
+                        <div class="question">
+                            <h5>Q#2: Pakistan Army shoots down Indian quadcopter drone in July, which was the________ Indian quadcopter shot down by the Pak Army in 2020.</h5>
+                        </div>
+                        <div class="options">
+                            <label><input type="radio" name="mcq2" value="8th">
+                            8th</label>
+                            <br>
+                            <label><input type="radio" name="mcq2" value="10th" id="MC2">
+                            10th</label>
+                            <br>
+                            <label><input type="radio" name="mcq2" value="12th">
+                            12th</label>
+                            <br>
+                            <label><input type="radio" name="mcq2" value="15th">
+                            15th</label>
+                        </div>
+                    </div>
+
+                    <div class="mcq font-2" id="Q3">
+                        <div class="question">
+                            <h5>Q#3: How many Pakistanis released from UAE jails in July 2020 ?</h5>
+                        </div>
+                        <div class="options">
+                            <label><input type="radio" name="mcq3" value="400">
+                            400</label>
+                            <br>
+                            <label><input type="radio" name="mcq3" value="1000">
+                            1000</label>
+                            <br>
+                            <label><input type="radio" name="mcq3" value="1200" id="MC3">
+                            1200</label>
+                            <br>
+                            <label><input type="radio" name="mcq3" value="1500">
+                            1500</label>
+                        </div>
+                    </div>
+
+                    <div class="mcq font-2" id="Q4">
+                        <div class="question">
+                            <h5>Q#4: How many times Pakistan has been elected as the president of the UN Economic & Social Council?</h5>
+                        </div>
+                        <div class="options">
+                            <label><input type="radio" name="mcq4" value="4th">
+                            4th</label>
+                            <br>
+                            <label><input type="radio" name="mcq4" value="5th">
+                            5th</label>
+                            <br>
+                            <label><input type="radio" name="mcq4" value="6th" id="MC4">
+                            6th</label>
+                            <br>
+                            <label><input type="radio" name="mcq4" value="None">
+                            None Of These</label>
+                        </div>
+                    </div>
+
+                    <div class="mcq font-2" id="Q5">
+                        <div class="question">
+                            <h5>Q#5: Pakistan’s __________ government has banned over 100 textbooks for containing objectionable content ?</h5>
+                        </div>
+                        <div class="options">
+                            
+                            <label><input type="radio" name="mcq5" value="Sindh">
+                            Sindh</label>
+                            <br>
+                            <label><input type="radio" name="mcq5" value="Punjab" id="MC5">
+                            Punjab</label>
+                            <br>
+                            <label><input type="radio" name="mcq5" value="Balochistan">
+                            Balochistan</label>
+                            <br>
+                            <label><input type="radio" name="mcq5" value="None">
+                            None Of These</label>
+                        </div>
+                    </div>
+
+               
+            </div>
+
+            <div class="test-controls">
+                <span class="flex-end font-2" onclick="ChangeQuestion('prev')" id="prev">Previous</span>
+                <span class="flex-end font-2" onclick="ChangeQuestion('next')" id="next">Next Question --></span>
+                <input type="submit" class="flex-end font-2" id="End" value="End Quiz">
+            </div>
+        </form>
+        <div id="result" class="font-1">
+            <h2 id="perc"></h2>
+            <h3 id="marks"></h3>
+            <h3 id="res"></h3>
+            <h3 id="times"></h3>
+        </div>
+        </div>
+    </div>
+
+    <script>
+        qid = 1;
+        document.getElementById("Q2").style.display = "none";
+        document.getElementById("Q3").style.display = "none";
+        document.getElementById("Q4").style.display = "none";
+        document.getElementById("Q5").style.display = "none";
+        document.getElementById("End").style.display = "none";
+        document.getElementById("prev").style.display = "none";
+        document.getElementById("testq").style.display = "none";
+        document.getElementById("result").style.display = "none";
+
+        function Quiz()
+        {
+            document.getElementById("information").style.display = "none";
+            document.getElementById("start").style.display = "none";
+            document.getElementById("testq").style.display = "block";
+            startTick();
+        }
+        time = 299;
+        
+        function format(num){
+            if(num >10){
+                return '' + num;
+            }
+            else{
+                return '0'+num;
+            }
+        }
+        function startTick(){
+            var sec = time % 60 ;
+            var min  = parseInt(time/60);
+            document.getElementById("time").innerHTML = format(min) + ":" + format(sec);
+
+             _tick = setInterval(function(){
+                var sec = time % 60 ;
+                var min  = parseInt(time/60);
+                if(time <= 0){
+                    
+                }
+                if(sec == 0){
+                    sec = 60;
+                }
+                time = time - 1;
+                sec = sec - 1;
+                document.getElementById("time").innerHTML = format(min) + ":" + format(sec);
+                //document.getElementById("gt").innerHTML = "<input type='hidden' name='rtime' value='"+time+"'/>";
+            },1000);
+        }
+        function stopTimer(time)
+        {
+            clearInterval(_tick);
+                document.getElementById("times").innerHTML = "You took " + time + " seconds to complete";
+        }
+        function ChangeQuestion(opt)
+        {
+            if(opt == "next")
+            {
+              if(qid == 1)
+              {
+                document.getElementById("Q1").style.display = "none";
+                document.getElementById("Q2").style.display = "block";
+                document.getElementById("Q3").style.display = "none";
+                document.getElementById("Q4").style.display = "none";
+                document.getElementById("Q5").style.display = "none";
+                qid = 2;
+                document.getElementById("prev").style.display = "block";
+              }
+              else if(qid == 2)
+              {
+                document.getElementById("Q1").style.display = "none";
+                document.getElementById("Q2").style.display = "none";
+                document.getElementById("Q3").style.display = "block";
+                document.getElementById("Q4").style.display = "none";
+                document.getElementById("Q5").style.display = "none";
+                qid = 3;
+              }  
+              else if(qid == 3)
+              {
+                document.getElementById("Q1").style.display = "none";
+                document.getElementById("Q2").style.display = "none";
+                document.getElementById("Q3").style.display = "none";
+                document.getElementById("Q4").style.display = "block";
+                document.getElementById("Q5").style.display = "none";
+                qid = 4;
+                document.getElementById("next").style.display = "block";
+              }
+              else if(qid == 4)
+              {
+                document.getElementById("Q1").style.display = "none";
+                document.getElementById("Q2").style.display = "none";
+                document.getElementById("Q3").style.display = "none";
+                document.getElementById("Q4").style.display = "none";
+                document.getElementById("Q5").style.display = "block";
+                qid = 5;
+                document.getElementById("next").style.display = "none";
+                document.getElementById("End").style.display = "block";
+              }
+            }
+            else if(opt == "prev")
+            {
+              if(qid == 5)
+              {
+                document.getElementById("Q1").style.display = "none";
+                document.getElementById("Q2").style.display = "none";
+                document.getElementById("Q3").style.display = "none";
+                document.getElementById("Q4").style.display = "block";
+                document.getElementById("Q5").style.display = "none";
+                qid = 4;
+                document.getElementById("next").style.display = "block";
+                document.getElementById("End").style.display = "none";
+              }
+              else if(qid == 4)
+              {
+                document.getElementById("Q1").style.display = "none";
+                document.getElementById("Q2").style.display = "none";
+                document.getElementById("Q3").style.display = "block";
+                document.getElementById("Q4").style.display = "none";
+                document.getElementById("Q5").style.display = "none";
+                qid = 3;
+                document.getElementById("next").style.display = "block";
+              }
+              else if(qid == 3)
+              {
+                document.getElementById("Q1").style.display = "none";
+                document.getElementById("Q2").style.display = "block";
+                document.getElementById("Q3").style.display = "none";
+                document.getElementById("Q4").style.display = "none";
+                document.getElementById("Q5").style.display = "none";
+                qid = 2;
+                document.getElementById("next").style.display = "block";
+                document.getElementById("prev").style.display = "block";
+              }
+              else if(qid == 2)
+              {
+                document.getElementById("Q1").style.display = "block";
+                document.getElementById("Q2").style.display = "none";
+                document.getElementById("Q3").style.display = "none";
+                document.getElementById("Q4").style.display = "none";
+                document.getElementById("Q5").style.display = "none";
+                qid = 1;
+                document.getElementById("next").style.display = "block";
+                document.getElementById("prev").style.display = "none";
+              }
+            }
+        }
+        Marks = 0;
+        Percentage = 0;
+        const form = document.querySelector("#testq");
+        const submit = document.querySelector("#End");
+        form.addEventListener("submit", event => {
+        event.preventDefault();
+        stopTimer(300 - time);
+            End();
+        });
+       
+        function End()
+            {
+                if(document.getElementById("MC1").checked)
+        {
+            Marks = Marks + 5;
+        }
+        if(document.getElementById("MC2").checked)
+        {
+            Marks = Marks + 5;
+        }
+        if(document.getElementById("MC3").checked)
+        {
+            Marks = Marks + 5;
+        }
+        if(document.getElementById("MC4").checked)
+        {
+            Marks = Marks + 5;
+        }
+        if(document.getElementById("MC5").checked)
+        {
+            Marks = Marks + 5;
+        }
+        Percentage = (Marks * 100) / 25;
+
+        document.getElementById("testq").style.display = "none";
+        document.getElementById("result").style.display = "block";
+        document.getElementById("perc").innerHTML = Percentage + "%";
+        document.getElementById("marks").innerHTML = Marks + " Out of 25";
+        if(Percentage > 60)
+        {
+            document.getElementById("res").innerHTML = "You Have <span style='color:green'>Cleared</span> the Test";
+        }
+        else
+        {
+            document.getElementById("res").innerHTML = "You Have <span style='color:red;'>Failed</span> the Test";
+        }
+
+        
+            }
+
+    </script>
+</body>
+</html>
